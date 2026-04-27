@@ -1,0 +1,17 @@
+#!/bin/awk -f
+BEGIN{
+    FS="[: ]";
+}
+
+{
+    if (NF == 9){
+        X=( ($6+$7+$8)/3);
+        LAST= substr($3,1,1);
+    } else { 
+        X=(($5+$6+$7)/3);
+        LAST= substr($2,1,1);
+    }
+    if (X > 300) {
+        print $1,LAST,X;
+    }
+}
